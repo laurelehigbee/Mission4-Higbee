@@ -12,13 +12,13 @@ namespace Mission4_Higbee.Controllers
     public class HomeController : Controller //controller creation
     {
         private readonly ILogger<HomeController> _logger;
-        private Context _aVarName { get; set; } //connects to the context model
+        private Context _movies { get; set; } //connects to the context model
 
-        public HomeController(ILogger<HomeController> logger, Context randomName) 
+        public HomeController(ILogger<HomeController> logger, Context con) 
             //information to connect to the database, context model
         {
             _logger = logger;
-            _aVarName = randomName;
+            _movies = con;
         }
 
         public IActionResult Index() //return view for index page
@@ -34,8 +34,8 @@ namespace Mission4_Higbee.Controllers
         [HttpPost]
         public IActionResult AddMovies(MovieResponse mr) //post response for add movies
         {
-            _aVarName.Add(mr); //adds the information into the response
-            _aVarName.SaveChanges(); //saves the changes to the database
+            _movies.Add(mr); //adds the information into the response
+            _movies.SaveChanges(); //saves the changes to the database
             return View("Confirmation",mr); //returns the confirmation view, movie response info saved
         }
 
