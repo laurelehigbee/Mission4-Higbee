@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Add Movies"; <!--Assigns title for the web page-->
+}
+<!--Connects to the Movie response model-->
+@model Mission4_Higbee.Models.MovieResponse
+<div class="text-center">
+    <h1 class="display-4">Add Movies Form</h1> <!--Heading for the page-->
+</div>
+
+<form method="post" style="text-align:center" class="row gy-2 gx-3 align-items-center">
+    <!--Assigns the method as post, creates the form and styles it-->
+
+    <div class="col-auto">
+        <!--Creates column-->
+        <label asp-for="Category">Category:</label><br /> <!--Category input-->
+        <input asp-for="Category" type="text" /><br />
+
+        <label asp-for="Title">Title:</label><br /> <!--Title input-->
+        <input asp-for="Title" type="text" /><br />
+
+        <label asp-for="Year">Year:</label><br /> <!--Year input-->
+        <input asp-for="Year" type="text" /><br />
+
+        <label asp-for="Director">Director:</label><br /> <!--Director input-->
+        <input asp-for="Director" type="text" /><br />
+
+
+        <label asp-for="Rating">Rating:</label><br /> <!--Rating input-->
+        <select asp-for="Rating">
+            <option value="G">G</option> <!--Rating options-->
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br /><br />
+    </div>
+
+    <div class="col-auto">
+        <!--Creates another column-->
+        <label asp-for="Edited">Edited:</label> <!--Edited input-->
+        <input asp-for="Edited"><br />
+
+        <label asp-for="Lent_to">Lent To:</label><br /> <!--Lent to input-->
+        <input asp-for="Lent_to" type="text" /><br />
+
+        <label asp-for="Notes">Notes:</label><br /> <!--Notes input-->
+        <input asp-for="Notes" type="text" /><br />
+    </div>
+
+    <button type="submit">Submit</button> <!--Button to submit the information-->
+    <div asp-validation-summary="All"></div> <!--Provides an explanation if the value(s) entered are invalid-->
+
+</form>
